@@ -11,7 +11,7 @@ public class TestClass {
     @BeforeClass
     public  static void HepsiburadaGiris()
     {
-        System.setProperty("webdriver.chrome.driver", "C:/Users/Talha BEĞENDİ/Documents/Selenium/ChromeDriver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/drivers/chromedriver.exe");
         Webdriver = new ChromeDriver();
         Webdriver.manage().window().maximize();
         Webdriver.get("https://www.hepsiburada.com/");
@@ -23,11 +23,11 @@ public class TestClass {
         assertVisible urunAramaAssert = new assertVisible(Webdriver);
         urunArama.UrunArama("iphone");
         urunArama.AraButton();
-        //Assert.assertTrue(urunAramaAssert.Assert_aramaYapilanUrun());
-       // urunArama.UrunIphone();
-       // Assert.assertTrue(urunAramaAssert.Assert_urunAd());
-       // urunArama.YorumlarButton();
-        //urunArama.IlkYorumEvetTikla();
-        //Assert.assertTrue(urunAramaAssert.Assert_ilkYorumTesekkur());
+        Assert.assertTrue(urunAramaAssert.Assert_aramaYapilanUrun());
+       urunArama.UrunIphone();
+        Assert.assertTrue(urunAramaAssert.Assert_urunAd());
+       urunArama.YorumlarButton();
+        urunArama.IlkYorumEvetTikla();
+        Assert.assertTrue(urunAramaAssert.Assert_ilkYorumTesekkur());
     }
 }
